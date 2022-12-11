@@ -1,8 +1,9 @@
 const express = require('express')
-const db = require('../model/database')
+const mongoose = require('mongoose')
 const {
     v4: uuidv4
 } = require('uuid');
+const fuModel = require('../model/flex_user');
 
 
 exports.register = async (req, res) => {
@@ -16,71 +17,58 @@ exports.register = async (req, res) => {
 
         let uid = uuidv4()
 
-        let sql = `SELECT uid FROM flex_user WHERE email ='${email}'`
+        let user = await fuModel.find({
+            email: email
+        })
 
-        db.query(sql, (err, result) => {
-            if (err) {
+        if (user.length > 0) {
+
+            if (age >= 18 && age <= 65) {
+                let newUser = await fuModel.findOneAndUpdate({
+                    email: email
+                }, {
+                    $set: {
+                        age: age,
+                        name: name
+                    }
+                })
+
                 res.json({
-                    message: err.message
+                    message: {
+                        message: "User registered",
+                        uid: user[0].uid
+                    }
                 })
             } else {
-                if (result.length > 0) { // user exist
-
-                    if (age >= "18" && age <= "65") {
-                        let uid = result[0].uid
-                        
-                        let sql = `UPDATE flex_user SET name='${name}',age='${age}', phno='${phno}' WHERE uid='${uid}'`
-
-                        db.query(sql, (err, result) => {
-                            if (err) {
-                                res.json({
-                                    message: err.message
-                                })
-                            } else {
-                                res.json({
-                                    message: {
-                                        message: "User registered",
-                                        uid: uid
-                                    }
-                                })
-                            }
-                        })
-
-                    } else {
-                        res.json({
-                            message: "Your age should be between 18 to 65"
-                        })
-                    }
-                } else {
-                    // new user
-                    if (age >= "18" && age <= "65") {
-                        let sql = `INSERT INTO flex_user (uid , name , email , age,phno) VALUES ('${uid}','${name}','${email}','${age}','${phno}')`
-
-                        db.query(sql, (err, result) => {
-                            if (err) {
-                                res.json({
-                                    message: err.message
-                                })
-                            } else {
-                                res.json({
-                                    message: {
-                                        message: "User registered",
-                                        uid: uid
-                                    }
-                                })
-                            }
-                        })
-
-                    } else {
-                        res.json({
-                            message: "Your age should be between 18 to 65"
-                        })
-                    }
-
-
-                }
+                res.json({
+                    message: "Your age should be between 18 to 65"
+                })
             }
-        })
+        } else {
+
+            if (age >= 18 && age <= 65) {
+                let userObj = {
+                    name: name,
+                    email: email,
+                    phno: phno,
+                    age: age,
+                    uid: uid
+                }
+                let newUser = await fuModel.create(userObj)
+
+                res.json({
+                    message: {
+                        message: "User registered",
+                        uid: uid
+                    }
+                })
+            } else {
+                res.json({
+                    message: "Your age should be between 18 to 65"
+                })
+            }
+
+        }
 
     } catch (error) {
         res.json({

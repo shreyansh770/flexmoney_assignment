@@ -4,7 +4,6 @@ const bookingRouter = require('./router/booking');
 const paymentRouter = require('./router/payment');
 const registerRouter = require('./router/register');
 require('dotenv/config');
-require('./model/database')
 let PORT = process.env.PORT
 
 
