@@ -23,15 +23,36 @@ const booking = async (req, res) => {
                 if (result.length > 0) {
 
                     // has previous booking
-                    let d = new Date()
-                    let month = d.getMonth()
-                    let year = d.getFullYear()
 
-                    // compare date
+                    let prevDate = result[0].date.split("-")
 
-                    // if user is trying to register again in same month alert them
+                    let m1 = prevDate[1];
+                    let y1 = prevDate[2];
 
-                    // if month is different update tha changes
+                    let currDate = date.split("-")
+
+                    let m2 = currDate[1];
+                    let y2 = currDate[2];
+
+                    if (m1 == m2 && y1 == y2) {
+                        res.json({
+                            message: "Your slot is already booked for this month"
+                        })
+                    } else {
+
+                        let sql = `UPDATE flex_batch SET date='${date}' , batch='${batch}' WHERE uid='${uid}'`
+                        db.query(sql, (err, result) => {
+                            if (err) {
+
+                            } else {
+
+                                res.json({
+                                    message: "Booking completed"
+                                })
+                            }
+                        })
+                    }
+
 
                 } else {
 

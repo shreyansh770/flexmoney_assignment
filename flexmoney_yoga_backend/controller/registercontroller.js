@@ -5,16 +5,14 @@ const {
 } = require('uuid');
 
 
-const register = async (req, res) => {
+exports.register = async (req, res) => {
     try {
-
         let {
             email,
             age,
             name,
+            phno
         } = req.body
-
-
 
         let uid = uuidv4()
 
@@ -28,17 +26,35 @@ const register = async (req, res) => {
             } else {
                 if (result.length > 0) { // user exist
 
-                    res.json({
-                        message: {
-                            message: "User registered",
-                            uid: result[0].uid
-                        }
-                    })
+                    if (age >= "18" && age <= "65") {
+                        let uid = result[0].uid
+                        
+                        let sql = `UPDATE flex_user SET name='${name}',age='${age}', phno='${phno}' WHERE uid='${uid}'`
+
+                        db.query(sql, (err, result) => {
+                            if (err) {
+                                res.json({
+                                    message: err.message
+                                })
+                            } else {
+                                res.json({
+                                    message: {
+                                        message: "User registered",
+                                        uid: uid
+                                    }
+                                })
+                            }
+                        })
+
+                    } else {
+                        res.json({
+                            message: "Your age should be between 18 to 65"
+                        })
+                    }
                 } else {
                     // new user
-
-                    if (age >= 18 && age <= 65) {
-                        let sql = `INSERT INTO flex_user (uid , name , email , age) VALUES ('${uid},'${name}','${email}','${age}')`
+                    if (age >= "18" && age <= "65") {
+                        let sql = `INSERT INTO flex_user (uid , name , email , age,phno) VALUES ('${uid}','${name}','${email}','${age}','${phno}')`
 
                         db.query(sql, (err, result) => {
                             if (err) {
@@ -72,7 +88,3 @@ const register = async (req, res) => {
         })
     }
 }
-
-
-
-module.exports = register
