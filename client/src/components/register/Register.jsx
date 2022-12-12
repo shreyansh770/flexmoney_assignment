@@ -89,8 +89,9 @@ export default function Register() {
         setError({ display: "none", satement: "", severity: "" });
       }, 2000);
     } else {
-      setError({ display: "none", satement: "", severity: "" });
+      setError({ display: "block", satement: "Loading....", severity: "info" });
       let res = await api.register(formdetails);
+      setError({ display: "none", satement: "", severity: "" });
       navigate(`/book/${res.data.message.uid}`);
     }
   };
