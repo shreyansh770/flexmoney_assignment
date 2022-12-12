@@ -70,7 +70,7 @@ TECH USED : NODEJS ,EXPRESS MONGODB
    
    # PAYEMENT PAGE
    
-   ![image](https://user-images.githubusercontent.com/56127597/207051436-7e187620-8e61-4edb-a896-31d93b6da1dc.png)
+   ![image](https://user-images.githubusercontent.com/56127597/207051590-69592dac-c534-4a65-8fcf-f774155f9926.png)
 
 
 
