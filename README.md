@@ -26,12 +26,12 @@ TECH USED : NODEJS ,EXPRESS MONGODB
   ## SLOT BOOKING (/booking/book)
 
      2) Now user will register for a slot
-       2.1) If the user has already booked a slot in the curr month then we ask them to come in next month
-       2.2) If the user is booking the slot for the first time in the month than we will update the batch and date 
+       2.1) If the user has already booked a slot in the curr month and has also paid the fees then we ask them to come in next month
+       2.2) If the user is booking the slot for the first time in the month than we will update the batch and date and payDone is set to false for the current month
 
    ## PAYMENT  (/payement/pay)
 
-   3) If the user had previously also booked slot with us we will just accept the payment else will save the card details and accept the payment
+   3) If the user had previously also booked slot with us we will just accept the payment else will save the card details and accept the payment and in either of the case we will set payDone to true
 
 ## ER DIAGRAM
 
