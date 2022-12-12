@@ -32,3 +32,6 @@ TECH USED : NODEJS ,EXPRESS MONGODB
    ## PAYMENT
 
    3) If the user had previously also booked slot with us we will just accept the payment else will save the card details and accept the payment
+
+## ER DIAGRAM
+
