@@ -1,6 +1,6 @@
 import axios from 'axios'
 const API = axios.create({
-    baseURL: 'https://elated-snaps-crow.cyclic.app/'
+    baseURL: 'https://fmbackend.onrender.com/'
 })
 
 API.interceptors.request.use((req) => {
