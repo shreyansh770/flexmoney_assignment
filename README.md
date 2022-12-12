@@ -14,7 +14,7 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
    So the approach we are following here is :
 
-   ## USER REGISTRATION
+   ## USER REGISTRATION (/register/user)
       
       1)  User will firstly come and register
          1.1) If user already exits:
@@ -23,13 +23,13 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
          In both the above case we have put a check that age should be greater than 18 and less than 65
         
-  ## SLOT BOOKING
+  ## SLOT BOOKING (/booking/book)
 
      2) Now user will register for a slot
        2.1) If the user has already booked a slot in the curr month then we ask them to come in next month
        2.2) If the user is booking the slot for the first time in the month than we will update the batch and date 
 
-   ## PAYMENT
+   ## PAYMENT  (/payement/pay)
 
    3) If the user had previously also booked slot with us we will just accept the payment else will save the card details and accept the payment
 
@@ -37,6 +37,9 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
 ![image](https://user-images.githubusercontent.com/56127597/207045760-1bbdc224-041b-4079-9b22-aaf2893867bb.png)
 
+  *uid* : every users unique id 
+  *phno* : phone number
+  
 
 ## CLIENT
   TECH USED : REACT ,MATERIAL UI
@@ -78,5 +81,8 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
 
      
-
+# IMPROVEMENTS:
+     1) Verifcation of email and phno using otps
+     2) Allow users to book for multiple months in advance
+     
 
