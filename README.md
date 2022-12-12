@@ -35,7 +35,7 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
 ## ER DIAGRAM
 
-![image](https://user-images.githubusercontent.com/56127597/207045760-1bbdc224-041b-4079-9b22-aaf2893867bb.png)
+![image](https://user-images.githubusercontent.com/56127597/207072732-56266df8-e89a-4d71-85b3-d91ada8f19a1.png)
 
   *uid* : every users unique id 
   *phno* : phone number
