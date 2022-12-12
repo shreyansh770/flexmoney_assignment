@@ -126,6 +126,7 @@ export default function Payment() {
                 <DatePicker
                   label="Basic example"
                   value={value}
+                  minDate={Date.now()}
                   onChange={(newValue) => {
                     setValue(newValue);
                     setFormdetails({
