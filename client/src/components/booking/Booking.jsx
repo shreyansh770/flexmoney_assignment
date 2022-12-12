@@ -77,7 +77,7 @@ export default function Payment() {
           severity: "success",
         });
         setTimeout(() => {
-          navigate("/");
+          navigate(`/pay/${params.id}`);
         }, 2000);
       } else {
         setError({

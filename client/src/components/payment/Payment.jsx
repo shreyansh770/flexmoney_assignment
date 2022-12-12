@@ -74,7 +74,7 @@ export default function Payment() {
         }, 2000);
         setTimeout(() => {
           setError({ display: "none", satement: "", severity: "" });
-          navigate(`/book/${params.id}`);
+          navigate(`/`);
         }, 4000);
       } else {
         setError({
@@ -124,6 +124,7 @@ export default function Payment() {
                 id="outlined-basic"
                 label="Card Number"
                 variant="outlined"
+                type="Number"
                 required
                 onChange={(e) =>
                   setFormdetails({

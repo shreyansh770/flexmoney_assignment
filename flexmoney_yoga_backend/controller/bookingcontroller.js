@@ -19,17 +19,20 @@ const booking = async (req, res) => {
         if (bookObj ?.length > 0) {
             let prevDate = bookObj[0].date.split("-")
 
-            let m1 = prevDate[1];
-            let y1 = prevDate[2];
 
-            let currDate = date.split("-")
+            let m1 = prevDate[1];
+            let y1 = prevDate[0];
+
+            let d = new Date()
+            let currDate = d.toISOString().substring(0, 10).split("-")
+
 
             let m2 = currDate[1];
-            let y2 = currDate[2];
+            let y2 = currDate[0];
 
             if (m1 == m2 && y1 == y2) {
                 res.json({
-                    message: "Your slot is already booked for this month"
+                    message: "Your slot is already booked for this month book again in the next month"
                 })
             } else {
                 let updateBooking = await fbModel.findOneAndUpdate({
@@ -50,7 +53,7 @@ const booking = async (req, res) => {
             let newBooking = await fbModel.create(req.body)
 
             res.json({
-                message: "Your slot is already booked for this month"
+                message: "Booking completed"
             })
         }
 

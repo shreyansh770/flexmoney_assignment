@@ -91,7 +91,7 @@ export default function Register() {
     } else {
       setError({ display: "none", satement: "", severity: "" });
       let res = await api.register(formdetails);
-      navigate(`/pay/${res.data.message.uid}`);
+      navigate(`/book/${res.data.message.uid}`);
     }
   };
 
@@ -157,6 +157,7 @@ export default function Register() {
                 id="outlined-basic"
                 label="Age"
                 variant="outlined"
+                type="Number"
                 required
                 onChange={(e) =>
                   setFormdetails({
