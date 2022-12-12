@@ -61,7 +61,7 @@ export default function Register() {
       setTimeout(() => {
         setError({ display: "none", satement: "", severity: "" });
       }, 2000);
-    } else if (!formdetails.email.includes("@")) {
+    } else if (!formdetails.email.includes("@") || !formdetails.email.includes(".")) {
       setError({
         display: "block",
         satement: "Enter Valid email",
