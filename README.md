@@ -1,6 +1,6 @@
-## DEPLOYED LINK
+# DEPLOYED LINK
 
-# https://flexyoga.netlify.app/
+## https://flexyoga.netlify.app/
 
 ## SERVER
 TECH USED : NODEJS ,EXPRESS MONGODB
@@ -10,11 +10,11 @@ TECH USED : NODEJS ,EXPRESS MONGODB
   1) Run npm install to install all the librabries
   2) nodemon server.js to start the server on your localhost
 
-# APPROACH
+## APPROACH
 
    So the approach we are following here is :
 
-   # USER REGISTRATION
+   ## USER REGISTRATION
       
       1)  User will firstly come and register
          1.1) If user already exits:
