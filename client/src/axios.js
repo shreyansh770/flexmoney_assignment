@@ -1,6 +1,6 @@
 import axios from 'axios'
 const API = axios.create({
-    baseURL: 'http://localhost:8080/'
+    baseURL: 'https://elated-snaps-crow.cyclic.app/'
 })
 
 API.interceptors.request.use((req) => {
