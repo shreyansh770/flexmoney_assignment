@@ -82,7 +82,7 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 
      
 # IMPROVEMENTS:
-     1) Verifcation of email and phno using otps
+     1) Verification of email and phno using otps
      2) Allow users to book for multiple months in advance
      
 
