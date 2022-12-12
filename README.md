@@ -85,5 +85,6 @@ TECH USED : NODEJS ,EXPRESS MONGODB
 # IMPROVEMENTS:
      1) Verification of email and phno using otps
      2) Allow users to book for multiple months in advance
-     
+    
+ **registration might take some time due to free tier backend hosting**
 
